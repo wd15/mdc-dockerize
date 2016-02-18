@@ -9,15 +9,20 @@
 
     tasks:
 
+      - name: apt-get installs
+        apt:
+          name: "{{ item }}"
+          state: present
+        become: true
+        with_items:
+          - bzip2
+          - g++
+
       - name: download miniconda
         get_url:
           url: https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
           dest: /tmp
           force: no
-
-      - name: install bzip2
-        apt: name=bzip2 state=present
-        become: true
 
       - name: install miniconda
         shell: bash /tmp/Miniconda-latest-Linux-x86_64.sh -b -p {{ anaconda_path }}
@@ -34,7 +39,7 @@
           - scipy
           - pip
 
-      - name: install fipy requirements guyer channel
+      - name: install fipy requirements from guyer channel
         shell: "{{ anaconda_path }}/bin/conda install --channel guyer {{ item }}"
         with_items:
           - gmsh
@@ -42,7 +47,7 @@
       - name: install scikit-fmm
         pip:
           name: scikit-fmm
-          executable: "{{ anaconda_path }}/bin"
+          executable: "{{ anaconda_path }}/bin/pip"
 
       - name: clone fipy
         git:
