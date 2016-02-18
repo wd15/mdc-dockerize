@@ -39,8 +39,10 @@
         with_items:
           - gmsh
 
-      - name: install scikit-learn
-        pip: name==scikit-fmm
+      - name: install scikit-fmm
+        pip:
+          name: scikit-fmm
+          executable: "{{ anaconda_path }}/bin"
 
       - name: clone fipy
         git:
