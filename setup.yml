@@ -5,7 +5,7 @@
     vars:
       local_path: "{{ lookup('env', 'HOME') }}"
       anaconda_path: "{{ local_path }}/anaconda"
-      fipy_path: "{{ local_path }}/git/fipy "
+      fipy_path: "{{ local_path }}/git/fipy"
 
     tasks:
 
