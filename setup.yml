@@ -43,6 +43,11 @@
         shell: "{{ anaconda_path }}/bin/conda install --channel guyer {{ item }}"
         with_items:
           - gmsh
+          - pysparse
+          - mayavi
+          - openmpi
+          - trilinos
+          - mpi4py
 
       - name: install scikit-fmm
         pip:
