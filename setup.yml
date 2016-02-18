@@ -38,5 +38,3 @@
           repo: https://github.com/usnistgov/fipy.git
           dest: "{{ fipy_dir }}"
           version: develop
-        args:
-          creates: "{{ fipy_dir }}"
