@@ -26,4 +26,6 @@ Hit enter when asked for a password.
 Finally, run the fipy tests to check that FiPy is installed correctly.
 
     # cd /home/testuser/git/fipy
-    # ~/anaconda/bin/python setup.py test
+    # export PATH="$HOME/anaconda/bin:$PATH"
+    # hash -r
+    # python setup.py test

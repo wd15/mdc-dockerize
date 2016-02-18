@@ -18,6 +18,7 @@
           - bzip2
           - g++
           - libgfortran3
+          - liblapack3
 
       - name: download miniconda
         get_url:
@@ -34,10 +35,10 @@
         shell: "{{ anaconda_path }}/bin/conda update conda"
 
       - name: install fipy requirements
-        shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy==1.9 scipy pip gmsh"
+        shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy scipy pip gmsh"
 
       - name: install more fipy requirements
-        shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy==1.9 pysparse mayavi openmpi trilinos mpi4py"
+        shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy pysparse openmpi trilinos mpi4py"
 
       - name: install scikit-fmm
         pip:
