@@ -20,14 +20,14 @@
 
       - name: install fipy requirements
         shell: "{{ anaconda_path }}/bin/conda install {{ item }}"
-        items:
+        with_items:
           - numpy==1.9
           - scipy
           - pip
 
       - name: install fipy requirements guyer channel
         shell: "{{ anaconda_path }}/bin/conda install --channel  {{ item }}"
-        items:
+        with_items:
           - gmsh
 
       - name: install scikit-learn
