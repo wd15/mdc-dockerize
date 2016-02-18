@@ -10,7 +10,10 @@
     tasks:
 
       - name: download miniconda
-        get_url: url=https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh dest=/tmp
+        get_url:
+          url: https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh
+          dest: /tmp
+          force: no
 
       - name: install bzip2
         apt: name=bzip2 state=present
@@ -32,7 +35,7 @@
           - pip
 
       - name: install fipy requirements guyer channel
-        shell: "{{ anaconda_path }}/bin/conda install --channel  {{ item }}"
+        shell: "{{ anaconda_path }}/bin/conda install --channel guyer {{ item }}"
         with_items:
           - gmsh
 

@@ -21,7 +21,9 @@ Build the environment in Docker
     # cd /home/testuser/git/fipy-dockerize
     # ./setup.bash
 
-and test FiPy
+Hit enter when asked for a password.
+
+Finally, run the fipy tests to check that FiPy is installed correctly.
 
     # cd /home/testuser/git/fipy
-    # python setup.py test
+    # ~/anaconda/bin/python setup.py test
