@@ -12,6 +12,9 @@
       - name: download miniconda
         get_url: url=https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh dest=/tmp
 
+      - name: install bzip2
+        apt: name=bzip2 state=present
+
       - name: install miniconda
         shell: bash /tmp/Miniconda-latest-Linux-x86_64.sh -b -p {{ anaconda_path }}
         args:
