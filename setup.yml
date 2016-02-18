@@ -36,7 +36,7 @@
       - name: clone fipy
         git:
           repo: https://github.com/usnistgov/fipy.git
-          dest: {{ fipy_dir }}
+          dest: "{{ fipy_dir }}"
           version: develop
         args:
-          creates: {{ fipy_dir }}
+          creates: "{{ fipy_dir }}"
