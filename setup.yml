@@ -3,9 +3,9 @@
     hosts: local
     connection: local
     vars:
-      local_home: "{{ lookup('env', 'HOME') }}"
-      anaconda_path: "{{ local_home }}/anaconda"
-      fipy_path: "{{ local_home}}/git/fipy "
+      local_path: "{{ lookup('env', 'HOME') }}"
+      anaconda_path: "{{ local_path }}/anaconda"
+      fipy_path: "{{ local_path }}/git/fipy "
 
     tasks:
 
@@ -52,5 +52,5 @@
       - name: clone fipy
         git:
           repo: https://github.com/usnistgov/fipy.git
-          dest: "{{ fipy_dir }}"
+          dest: "{{ fipy_path }}"
           version: develop
