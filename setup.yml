@@ -1,0 +1,42 @@
+---
+  - hosts: local
+
+    variables:
+      local_home: "{{ lookup('env', 'HOME') }}"
+      anaconda_path: "{{ local_home }}/anaconda"
+      fipy_path: "{{ local_home}}/git/fipy "
+
+    tasks:
+      - name: download miniconda
+        get_url: url=https://repo.continuum.io/miniconda/Miniconda-latest-Linux-x86_64.sh dest=/tmp
+
+      - name: install miniconda
+        shell: bash /tmp/Miniconda-latest-Linux-x86_64.sh -b -p {{ anaconda_path }}
+        args:
+          creates: "{{ anaconda_path }}"
+
+      - name: update conda
+        shell: "{{ anaconda_path }}/bin/conda update conda"
+
+      - name: install fipy requirements
+        shell: "{{ anaconda_path }}/bin/conda install {{ item }}"
+        items:
+          - numpy==1.9
+          - scipy
+          - pip
+
+      - name: install fipy requirements guyer channel
+        shell: "{{ anaconda_path }}/bin/conda install --channel  {{ item }}"
+        items:
+          - gmsh
+
+      - name: install scikit-learn
+        pip: name==scikit-fmm
+
+      - name: clone fipy
+        git:
+          repo: https://github.com/usnistgov/fipy.git
+          dest: {{ fipy_dir }}
+          version: develop
+        args:
+          creates: {{ fipy_dir }}
