@@ -1,7 +1,7 @@
 ---
   - hosts: local
 
-    variables:
+    vars:
       local_home: "{{ lookup('env', 'HOME') }}"
       anaconda_path: "{{ local_home }}/anaconda"
       fipy_path: "{{ local_home}}/git/fipy "
