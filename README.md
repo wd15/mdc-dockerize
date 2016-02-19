@@ -95,3 +95,6 @@ Fails early on ...
     Doctest: fipy.terms.cellTerm.CellTerm._test ... ok
     _buildMatrix (fipy.terms.abstractDiffusionTerm._AbstractDiffusionTerm)
     Doctest: fipy.terms.abstractDiffusionTerm._AbstractDiffusionTerm._buildMatrix ... Intel MKL FATAL ERROR: Cannot load libmkl_avx.so or libmkl_def.so.
+
+This should be fixed by adding `nomkl` to the conda installs, but it
+doesn't seem to work currently.

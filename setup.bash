@@ -6,4 +6,4 @@ fi
 
 ## be sure to use the system python with ansible at this point
 export PATH=/usr/bin:$PATH
-ansible-playbook setup.yml -i HOSTS --ask-sudo-pass $@
+ansible-playbook setup.yml -i HOSTS $@
