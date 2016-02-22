@@ -1,18 +1,18 @@
-## Dockerize FiPY
+# Try FiPy in a Docker Instance
 
-Test FiPy installation on a Docker instance.
-
-### Install Docker
+## Install Docker
 
 See https://docs.docker.com/engine/installation/linux/ubuntulinux/ for
 details.
 
-### Build an Empty Interactive Docker Instance
+## Build an Empty Interactive Docker Instance
 
+    $ git clone https://github.com/wd15/fipy-dockerize.git
+    $ cd fipy-dockerize
     $ sudo service docker start
     $ docker build --no-cache -t fipy-test .
 
-### Test FiPy
+## Test FiPy
 
 Build the environment in Docker
 
