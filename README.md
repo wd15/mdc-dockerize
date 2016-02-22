@@ -29,11 +29,11 @@ Clone this repository and build the instance.
 
     $ git clone https://github.com/wd15/fipy-dockerize.git
     $ cd fipy-dockerize
-    $ sudo service docker start
     $ docker build --no-cache -t wd15/fipy-test:latest .
 
 ## Push the Docker instance
 
 Create the repository in Dockerhub and then push it.
 
+    $ docker login
     $ docker push docker.io/wd15/fipy-test:latest
