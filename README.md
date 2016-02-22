@@ -37,3 +37,7 @@ Create the repository in Dockerhub and then push it.
 
     $ docker login
     $ docker push docker.io/wd15/fipy-test:latest
+
+## See Travis CI to test this Docker instance
+
+https://travis-ci.org/wd15/fipy-dockerize
