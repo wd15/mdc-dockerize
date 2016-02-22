@@ -4,7 +4,7 @@ sudo: required
 language: python
 
 services:
-  - python
+  - docker
 
 before_install:
   - docker pull wd15/fipy-test
