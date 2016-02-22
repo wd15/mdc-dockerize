@@ -2,21 +2,38 @@
 
 ## Install Docker
 
-See https://docs.docker.com/engine/installation/linux/ubuntulinux/ for
-details.
+Install Docker and run the Deamon. See
+https://docs.docker.com/engine/installation/linux/ubuntulinux/ for
+installation details.
 
-## Build an Empty Interactive Docker Instance
+    $ sudo service docker start
+
+## Pull the Docker instance
+
+Pull the Docker Instance from Dockerhub
+
+    $ docker pull docker.io/wd15/fipy-test
+
+## Test FiPy
+
+Test the build inside the instance.
+
+    $ docker run -i -t wd15/fipy-test:latest /bin/bash
+    # su testuser
+    # cd /home/testuser/git/fipy
+    # python setup.py test --pysparse
+
+## Build the Docker instance
+
+Clone this repository and build the instance.
 
     $ git clone https://github.com/wd15/fipy-dockerize.git
     $ cd fipy-dockerize
     $ sudo service docker start
-    $ docker build --no-cache -t fipy-test .
+    $ docker build --no-cache -t wd15/fipy-test:latest .
 
-## Test FiPy
+## Push the Docker instance
 
-Build the environment in Docker
+Create the repository in Dockerhub and then push it.
 
-    $ docker run -i -t fipy-test /bin/bash
-    # su testuser
-    # cd /home/testuser/git/fipy
-    # python setup.py test --pysparse
+    $ docker push docker.io/wd15/fipy-test:latest
