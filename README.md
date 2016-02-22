@@ -38,6 +38,7 @@ Create the repository in Dockerhub and then push it.
     $ docker login
     $ docker push docker.io/wd15/fipy-test:latest
 
-## See Travis CI to test this Docker instance
+## See the Travis CI test of this instance
 
+Tests `python setup.py test --pysparse` running on the instance. See,
 https://travis-ci.org/wd15/fipy-dockerize
