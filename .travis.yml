@@ -10,7 +10,7 @@ before_install:
   - docker pull wd15/fipy-test
   - docker run -d -p 127.0.0.1:80:4567 wd15/fipy-test:latest /bin/bash
   - docker ps -a
-  - docker run wd15/fipy-test:latest /bin/bash -c "su testuser; cd /home/testuser/git/fipy; python setup.py test"
+  - docker run wd15/fipy-test:latest /bin/bash -c "cd /home/testuser/git/fipy; su testuser -c '~/anaconda/bin/python setup.py test'"
 
 script:
   - python setup.py test
