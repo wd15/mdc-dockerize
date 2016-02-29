@@ -1,24 +1,24 @@
 ---
-  - name: playbook to set up FiPy
+  - name: playbook to set the MDC
     hosts: local
     connection: local
     vars:
       local_path: "{{ lookup('env', 'HOME') }}"
       anaconda_path: "{{ local_path }}/anaconda"
-      fipy_path: "{{ local_path }}/git/fipy"
+      mdc_path: "{{ local_path }}/git/mdc"
 
     tasks:
 
-      - name: apt-get installs
-        apt:
-          name: "{{ item }}"
-          state: present
-        become: true
-        with_items:
-          - bzip2
-          - g++
-          - libgfortran3
-          - liblapack3
+      # - name: apt-get installs
+      #   apt:
+      #     name: "{{ item }}"
+      #     state: present
+      #   become: true
+      #   with_items:
+      #     - bzip2
+      #     - g++
+      #     - libgfortran3
+      #     - liblapack3
 
       - name: download miniconda
         get_url:
@@ -34,18 +34,8 @@
       - name: update conda
         shell: "{{ anaconda_path }}/bin/conda update conda"
 
-      - name: install fipy requirements
-        shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy==1.9 scipy pip gmsh"
-
-      - name: install more fipy requirements
-        shell: "{{ anaconda_path }}/bin/conda install --channel guyer numpy==1.9 pysparse openmpi trilinos mpi4py"
-      - name: install scikit-fmm
-        pip:
-          name: scikit-fmm
-          executable: "{{ anaconda_path }}/bin/pip"
-
-      - name: clone fipy
+      - name: clone MDC
         git:
-          repo: https://github.com/usnistgov/fipy.git
-          dest: "{{ fipy_path }}"
-          version: develop
+          repo: https://github.com/usnistgov/mdcs.git
+          dest: "{{ mdc_path }}"
+          version: master
