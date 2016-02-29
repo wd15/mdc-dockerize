@@ -1,4 +1,4 @@
-# Try FiPy in a Docker Instance
+# Try the Materials Data Curator in a Docker Instance
 
 ## Install Docker
 
@@ -12,33 +12,28 @@ installation details.
 
 Pull the Docker Instance from Dockerhub
 
-    $ docker pull docker.io/wd15/fipy-test
+    $ docker pull docker.io/wd15/mdc-test
 
-## Test FiPy
+## Test the MDC
 
 Test the build inside the instance.
 
-    $ docker run -i -t wd15/fipy-test:latest /bin/bash
+    $ docker run -i -t wd15/mdc-test:latest /bin/bash
     # su testuser
-    # cd /home/testuser/git/fipy
-    # python setup.py test --pysparse
+    # cd /home/testuser/git/mdc
+    # run the MDC
 
 ## Build the Docker instance
 
 Clone this repository and build the instance.
 
-    $ git clone https://github.com/wd15/fipy-dockerize.git
-    $ cd fipy-dockerize
-    $ docker build --no-cache -t wd15/fipy-test:latest .
+    $ git clone https://github.com/wd15/mdc-dockerize.git
+    $ cd mdc-dockerize
+    $ docker build --no-cache -t wd15/mdc-test:latest .
 
 ## Push the Docker instance
 
 Create the repository in Dockerhub and then push it.
 
     $ docker login
-    $ docker push docker.io/wd15/fipy-test:latest
-
-## See the Travis CI test of this instance
-
-Tests `python setup.py test --pysparse` running on the instance. See,
-https://travis-ci.org/wd15/fipy-dockerize
+    $ docker push docker.io/wd15/mdc-test:latest
