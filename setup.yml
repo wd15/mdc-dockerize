@@ -83,5 +83,4 @@
           name: mdcs_user
           password: password
           roles: ["readWrite"]
-          login_database: admin
           login_password: password
