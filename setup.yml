@@ -16,6 +16,8 @@
         become: true
         with_items:
           - bzip2
+          - mongodb
+          - python-pip
 
       - name: check if anaconda is installed
         stat: path={{ anaconda_path }}
@@ -46,10 +48,6 @@
       - name: install new enviroment
         shell: "{{ anaconda_path }}/bin/conda env update -n root --file environment.yml"
 
-      - name: install mongodb
-        apt: name=mongodb state=present
-        become: true
-
       - name: make mongodb directory for database
         file: path=/data/db state=directory mode=0755
         become: true
@@ -60,6 +58,7 @@
 
       - name: start mongodb
         service: name=mongod state=started
+        become: true
 
       - name: add mongodb user
         become: true
