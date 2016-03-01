@@ -38,4 +38,4 @@
           version: master
 
       - name: install new enviroment
-        shell: "{{ anaconda_path }}/bin/conda env update -n root --file {{ mdc_path }}/environment.yml"
+        shell: "{{ anaconda_path }}/bin/conda env update -n root --file environment.yml"
