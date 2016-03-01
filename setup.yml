@@ -57,7 +57,7 @@
         become: true
 
       - name: start mongodb
-        service: name=mongod state=started
+        service: name=mongodb state=started
         become: true
 
       - name: add mongodb user
