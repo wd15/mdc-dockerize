@@ -16,9 +16,6 @@
         become: true
         with_items:
           - bzip2
-      #     - g++
-      #     - libgfortran3
-      #     - liblapack3
 
       - name: download miniconda
         get_url:
@@ -39,3 +36,6 @@
           repo: https://github.com/usnistgov/mdcs.git
           dest: "{{ mdc_path }}"
           version: master
+
+      - name: install new enviroment
+        shell: "{{ anaconda_path }}/bin/conda env update -n root --file {{ mdc_path }}/environment.yml"
