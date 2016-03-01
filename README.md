@@ -1,4 +1,10 @@
-# Try the Materials Data Curator in a Docker Instance
+# Try the [Materials Data Curator](https://github.com/usnistgov/mdcs)
+  in a Docker Instance
+
+The official linux installation for the
+[Materials Data Curator](https://github.com/usnistgov/mdcs) (MDC) is
+in a
+[text file in the MDC repo](https://github.com/usnistgov/MDCS/blob/stable/docs/Installation%20Instructions%20for%20Linux).
 
 ## Install Docker
 
