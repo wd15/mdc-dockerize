@@ -45,7 +45,7 @@
         notify:
           - start mongodb
 
-  - handlers:
+    handlers:
 
-    - name: start mongodb
-      service: name=mongod state=started
+      - name: start mongodb
+        service: name=mongod state=started
