@@ -49,7 +49,7 @@
         git:
           repo: https://github.com/usnistgov/mdcs.git
           dest: "{{ mdc_path }}"
-          version: master
+          version: stable
 
       - name: install new enviroment
         shell: "{{ anaconda_path }}/bin/conda env update -n root --file environment.yml"
@@ -70,7 +70,7 @@
         become: true
         mongodb_user:
           database: admin
-          name: mdcs_admin
+          name: mgi_admin
           password: password
           roles: ["readAnyDatabase", "userAdminAnyDatabase", "dbAdmin", "backup", "restore"]
 
@@ -78,7 +78,13 @@
         become: true
         mongodb_user:
           database: mgi
-          name: mdcs_user
-          password: password
+          name: mgi_user
+          password: mgi_password
           roles: ["readWrite"]
           login_password: password
+
+      - name: initialize the django app
+        command: chdir={{ mdc_path }} python manage.py syncdb
+
+      - name: run the server
+        command: chdir={{ mdc_path }} 'python manage.py runserver > /dev/null 2>&1 &'
