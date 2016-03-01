@@ -9,13 +9,13 @@
 
     tasks:
 
-      # - name: apt-get installs
-      #   apt:
-      #     name: "{{ item }}"
-      #     state: present
-      #   become: true
-      #   with_items:
-      #     - bzip2
+      - name: apt-get installs
+        apt:
+          name: "{{ item }}"
+          state: present
+        become: true
+        with_items:
+          - bzip2
       #     - g++
       #     - libgfortran3
       #     - liblapack3
