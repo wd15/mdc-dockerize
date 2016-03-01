@@ -56,6 +56,13 @@
         notify:
           - start mongodb
 
+      - name: add admin user to mongodb
+        mongodb_user:
+          database: admin
+          name: mdcs_admin
+          password: password
+          roles: ["readAnyDatabase", "userAdminAnyDatabase", "dbAdmin", "backup", "restore"]
+
     handlers:
 
       - name: start mongodb
