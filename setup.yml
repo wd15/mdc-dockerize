@@ -16,6 +16,7 @@
         become: true
         with_items:
           - bzip2
+          - mongodb
 
       - name: download miniconda
         get_url:
