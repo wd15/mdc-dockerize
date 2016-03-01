@@ -60,10 +60,28 @@
         service: name=mongodb state=started
         become: true
 
-      - name: add mongodb user
+      - name: add mongo admin user
         become: true
         mongodb_user:
           database: admin
           name: mdcs_admin
           password: password
           roles: ["readAnyDatabase", "userAdminAnyDatabase", "dbAdmin", "backup", "restore"]
+
+      - name: add mongo admin user
+        become: true
+        mongodb_user:
+          database: admin
+          name: mdcs_admin
+          password: password
+          roles: ["readAnyDatabase", "userAdminAnyDatabase", "dbAdmin", "backup", "restore"]
+
+      - name: add mongo regular user
+        become: true
+        mongodb_user:
+          database: mgi
+          name: mdcs_user
+          password: password
+          roles: ["readWrite"]
+          login_database: admin
+          login_password: password
