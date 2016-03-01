@@ -6,6 +6,7 @@ dependencies:
 - requests==2.3.0
 - pymongo==2.8
 - psycopg2
+- mongodb
 - pip:
   - mongoengine==0.8.7
   - djangorestframework==2.3.13

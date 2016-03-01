@@ -46,10 +46,6 @@
       - name: install new enviroment
         shell: "{{ anaconda_path }}/bin/conda env update -n root --file environment.yml"
 
-      - name: install mongodb
-        apt: pkg=mongodb state=latest update_cache=yes
-        become: true
-
       - name: make mongodb directory for database
         file: path=/data/db state=directory mode=0755
         become: true
