@@ -18,6 +18,12 @@
           - bzip2
           - mongodb
           - python-pip
+          - libxslt1-dev
+          - libldap2-dev
+          - libsasl2-dev
+          - python-dev
+          - libldap2-dev
+          - libssl-dev
 
       - name: check if anaconda is installed
         stat: path={{ anaconda_path }}
@@ -59,14 +65,6 @@
       - name: start mongodb
         service: name=mongodb state=started
         become: true
-
-      - name: add mongo admin user
-        become: true
-        mongodb_user:
-          database: admin
-          name: mdcs_admin
-          password: password
-          roles: ["readAnyDatabase", "userAdminAnyDatabase", "dbAdmin", "backup", "restore"]
 
       - name: add mongo admin user
         become: true

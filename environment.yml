@@ -14,3 +14,5 @@ dependencies:
   - django-rest-swagger==0.1.14
   - xmltodict==0.8.7
   - python-dateutil==2.2
+  - python-ldap
+  - django-auth-ldap
