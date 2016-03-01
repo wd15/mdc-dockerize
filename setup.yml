@@ -50,6 +50,11 @@
         apt: pkg=mongodb state=latest update_cache=yes
         become: true
         notify:
+
+      - name: make mongodb directory for database
+        file: path=/data/db state=directory mode=0755
+        become: true
+        notify:
           - start mongodb
 
     handlers:
