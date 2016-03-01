@@ -47,7 +47,7 @@
         shell: "{{ anaconda_path }}/bin/conda env update -n root --file environment.yml"
 
       - name: install mongodb
-        apt: pkg=mongodb-org state=latest update_cache=yes
+        apt: pkg=mongodb state=latest update_cache=yes
         become: true
         notify:
           - start mongodb
