@@ -46,21 +46,25 @@
       - name: install new enviroment
         shell: "{{ anaconda_path }}/bin/conda env update -n root --file environment.yml"
 
+      - name: install mongodb
+        apt: name=mongodb state=present
+        become: true
+
       - name: make mongodb directory for database
         file: path=/data/db state=directory mode=0755
         become: true
-        notify:
-          - start mongodb
 
-      - name: add admin user to mongodb
+      - name: install pymongo
+        pip: name=pymongo executable=/usr/bin/pip
+        become: true
+
+      - name: start mongodb
+        service: name=mongod state=started
+
+      - name: add mongodb user
+        become: true
         mongodb_user:
           database: admin
           name: mdcs_admin
           password: password
           roles: ["readAnyDatabase", "userAdminAnyDatabase", "dbAdmin", "backup", "restore"]
-
-    handlers:
-
-      - name: start mongodb
-        service: name={{ anaconda_path}}/bin/mongod state=started
-        become: true
