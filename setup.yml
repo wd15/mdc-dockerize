@@ -74,6 +74,8 @@
           name: mgi_admin
           password: password
           roles: ["readAnyDatabase", "userAdminAnyDatabase", "dbAdmin", "backup", "restore"]
+        tags:
+          - add_admin_user
 
       - name: add mongo regular user
         become: true
