@@ -24,7 +24,7 @@ Pull the Docker Instance from Dockerhub
 
 Test the build inside the instance.
 
-    $ docker run -i -p 22 -p 8000:8000 --net=host -t wd15/mdc-latest /bin/bash
+    $ docker run -i -p 8000:8000 --net=host -t wd15/mdc-test:latest
 
 ## Build the Docker instance
 
