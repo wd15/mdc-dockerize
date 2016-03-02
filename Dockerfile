@@ -24,4 +24,5 @@ RUN runuser -l testuser -c "cd ~; mkdir -p git; cd git; git clone https://github
 RUN runuser -l testuser -c "cd ~/git/mdc-dockerize; ./setup.bash"
 RUN runuser -l testuser -c 'echo "PATH=$HOME/anaconda/bin:$PATH" >> ~/.bashrc'
 
+CMD runuser -l testuser -c "cd ~/git/mdc; python setup.py runserver &"
 EXPOSE 8000
