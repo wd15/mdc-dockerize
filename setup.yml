@@ -13,6 +13,7 @@
         apt:
           name: "{{ item }}"
           state: present
+          force: yes
         become: true
         with_items:
           - bzip2
@@ -84,7 +85,7 @@
           login_password: password
 
       - name: initialize the django app
-        command: chdir={{ mdc_path }} python manage.py syncdb
+        command: chdir={{ mdc_path }} python manage.py syncdb --noinput
 
       - name: run the server
         command: chdir={{ mdc_path }} 'python manage.py runserver > /dev/null 2>&1 &'
