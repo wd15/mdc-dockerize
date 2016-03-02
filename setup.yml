@@ -91,9 +91,7 @@
           login_password: password
 
       - name: sync the app
-        django_manage:
-          app_path: "{{ mdc_path }}"
-          command: syncdb --noinput
+        command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py syncdb --noinput
 
       - name: run the server
         command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py runserver &
