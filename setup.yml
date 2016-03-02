@@ -97,9 +97,9 @@
       - name: sync the app
         command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py migrate --noinput
         tags:
-          - mongdb
+          - mongodb
 
       - name: add an admin user
         command: chdir={{ mdc_path }} echo "from django.contrib.auth.models import User; User.objects.create_superuser('admin5', 'admin@example.com', 'admin5'); exit()" | {{ anaconda_path }}/bin/python manage.py shell
         tags:
-          - mongdb
+          - mongodb
