@@ -90,4 +90,4 @@
         command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py syncdb --noinput
 
       - name: run the server
-        command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py runserver > /dev/null 2>&1 &'
+        command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py runserver > /dev/null 2>&1 &
