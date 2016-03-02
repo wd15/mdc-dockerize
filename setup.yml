@@ -98,4 +98,4 @@
         command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py migrate --noinput
 
       - name: add an admin user
-        command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python --noinput --username=admin --email=admin@example.com
+        command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py createsuperuser --noinput --username=admin --email=admin@example.com
