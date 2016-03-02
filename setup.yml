@@ -95,13 +95,13 @@
           login_password: password
 
       - name: sync the app
-        command: chdir={{ mdc_path }} {{ anaconda_path }}/bin/python manage.py migrate --noinput
+        command: "{{ anaconda_path }}/bin/python manage.py migrate --noinput"j
         args:
-          chdir: {{ mdc_path }}
+          chdir: "{{ mdc_path }}"
 
       - name: add an admin user
         command: echo "from django.contrib.auth.models import User; User.objects.create_superuser('mdc_admin_test', 'admin@example.com', 'password'); exit()" | {{ anaconda_path }}/bin/python manage.py shell
         args:
-          chdir: {{ mdc_path }}
+          chdir: "{{ mdc_path }}"
         tags:
           - mongodb
