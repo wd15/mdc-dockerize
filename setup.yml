@@ -95,7 +95,7 @@
           login_password: password
 
       - name: sync the app
-        command: "{{ anaconda_path }}/bin/python manage.py migrate --noinput"j
+        command: "{{ anaconda_path }}/bin/python manage.py migrate --noinput"
         args:
           chdir: "{{ mdc_path }}"
 
