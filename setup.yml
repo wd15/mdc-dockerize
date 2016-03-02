@@ -63,6 +63,10 @@
         pip: name=pymongo executable=/usr/bin/pip
         become: true
 
+      - name: wait for mongodb to be available
+        wait_for:
+          port: 27017
+
       - name: start mongodb
         service: name=mongodb state=started
         become: true
