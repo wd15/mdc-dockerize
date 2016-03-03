@@ -26,6 +26,9 @@ Test the build inside the instance.
 
     $ docker run -i -p 8000:8000 --net=host -t wd15/mdc-test:latest
 
+and go to http://localhost:8000 with admin user `admin` and password
+`admin`.
+
 ## Build the Docker instance
 
 Clone this repository and build the instance.
