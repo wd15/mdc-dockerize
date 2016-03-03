@@ -103,5 +103,3 @@
         command: bash -c "echo \"from django.contrib.auth.models import User; User.objects.create_superuser('admin', 'admin@example.com', 'admin'); exit()\" | {{ anaconda_path }}/bin/python manage.py shell"
         args:
           chdir: "{{ mdc_path }}"
-        tags:
-          - mongodb
