@@ -100,7 +100,7 @@
           chdir: "{{ mdc_path }}"
 
       - name: add an admin user
-        command: "echo \"from django.contrib.auth.models import User; User.objects.create_superuser(\'admin\', \'admin@example.com\', \'admin\'); exit()\" | {{ anaconda_path }}/bin/python manage.py shell"
+        command: "echo '\"from django.contrib.auth.models import User; User.objects.create_superuser(\'admin\', \'admin@example.com\', \'admin\'); exit()\"' | {{ anaconda_path }}/bin/python manage.py shell"
         args:
           chdir: "{{ mdc_path }}"
         tags:
